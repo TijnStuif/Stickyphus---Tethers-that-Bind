@@ -43,10 +43,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(
+        Move();
+    }
+
+    private void Move()
+    {
+        rb.AddForce(new Vector2(
             moveInput.x * moveSpeed * movementMultiplier,
             rb.linearVelocity.y
-        );
+        ));
     }
 
     private void Jump(UnityEngine.InputSystem.InputAction.CallbackContext context)
