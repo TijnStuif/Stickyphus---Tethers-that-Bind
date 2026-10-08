@@ -3,15 +3,14 @@ using System.Collections;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [System.NonSerialized] public bool isHoldingBall = false;
-    [SerializeField] private float ropeStiffness = 500f;
+    [System.NonSerialized] public bool hasBall = false;
+    [SerializeField] private float ropeStiffness = 10f;
     public float ballThrowForce = 10f;
     public float ballPickupDelay = 1f;
     public float ropeLength = 1f;
-
-    private Vector3 throwOffset = new Vector3(0, .5f, 0);
     private float ballPickupTimer = 0f;
     private GameObject heldBall;
+    private Vector3 playerPullAdjustment = new Vector3(1f, 0.8f, 1f);
     
     private PlayerMovement playerMovement;
     private Rigidbody2D playerRb;
@@ -32,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
             ThrowBall();
         }
 
-        if (!isHoldingBall && ballPickupTimer <= ballPickupDelay)
+        if (!hasBall && ballPickupTimer <= ballPickupDelay)
         {
             ballPickupTimer += Time.deltaTime;
         }
@@ -45,11 +44,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void ThrowBall()
     {
-        if (isHoldingBall)
+        if (hasBall)
         {
             ballPickupTimer = 0f;
-            isHoldingBall = false;
-            heldBall.transform.position = transform.position + throwOffset;
+            hasBall = false;
+            heldBall.transform.position = transform.position;
 
             heldBall.SetActive(true);
 
@@ -63,11 +62,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void ApplyRopeForce()
     {
-        Vector2 playerPosition = playerRb.position;
-        Vector2 ballPosition = ballRb.position;
+        if (hasBall) return;
 
-        Vector2 difference = ballPosition - playerPosition;
-
+        Vector2 difference = ballRb.position - playerRb.position;
         float distance = difference.magnitude;
 
         if (distance <= ropeLength)
@@ -75,10 +72,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector2 direction = difference.normalized;
 
-        float stretch = (distance - ropeLength) * ropeStiffness;
+        float stretch = distance - ropeLength;
+        float force = stretch * ropeStiffness;
 
-        playerRb.AddForce(direction * stretch);
-        ballRb.AddForce(-direction * stretch);
+        playerRb.AddForce(direction * force * playerPullAdjustment);
+        ballRb.AddForce(-direction * force);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -86,7 +84,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBall"))
         {
             if (ballPickupTimer < ballPickupDelay) return;
-            isHoldingBall = true;
+            hasBall = true;
             collision.gameObject.SetActive(false);
             heldBall = collision.gameObject;
             ballRb = heldBall.GetComponent<Rigidbody2D>();

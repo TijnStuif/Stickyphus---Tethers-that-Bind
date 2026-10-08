@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float acceleration = 8f;
     public float moveSpeed = 8f;
     public float jumpForce = 12f;
     public float ballSlowModifier = 0.7f;
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movementMultiplier = !playerBehaviour.isHoldingBall ? 1f : ballSlowModifier;
+        movementMultiplier = !playerBehaviour.hasBall ? 1f : ballSlowModifier;
         moveInput = input.Player.Move.ReadValue<Vector2>();
     }
 
@@ -48,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.AddForce(new Vector2(
-            moveInput.x * moveSpeed * movementMultiplier,
-            rb.linearVelocity.y
-        ));
+        float targetSpeed = moveInput.x * moveSpeed * movementMultiplier;
+
+        float speedDifference = targetSpeed - rb.linearVelocity.x;
+
+        rb.AddForce(
+            Vector2.right * speedDifference * acceleration
+        );
     }
 
     private void Jump(UnityEngine.InputSystem.InputAction.CallbackContext context)
