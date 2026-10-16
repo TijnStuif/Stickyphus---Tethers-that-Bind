@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float ropeStiffness = 10f;
     public float ballThrowForce = 10f;
     public float ballPickupDelay = 1f;
-    public float ropeLength = 1f;
+    public float ropeLength = 2f;
     private float ballPickupTimer = 0f;
     private GameObject heldBall;
     private Vector3 playerPullAdjustment = new Vector3(1f, 0.8f, 1f);
@@ -104,11 +104,14 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Collider2D playerCollider = GetComponent<Collider2D>();
         Collider2D ballCollider = heldBall.GetComponent<Collider2D>();
+        DistanceJoint2D joint = heldBall.GetComponent<DistanceJoint2D>();
 
         Physics2D.IgnoreCollision(playerCollider, ballCollider, true);
+        joint.enabled = false;
 
         yield return new WaitForSeconds(ballPickupDelay);
 
         Physics2D.IgnoreCollision(playerCollider, ballCollider, false);
+        joint.enabled = true;
     }
 }

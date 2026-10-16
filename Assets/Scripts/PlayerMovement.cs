@@ -6,7 +6,13 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 8f;
     public float jumpForce = 12f;
     public float ballSlowModifier = 0.7f;
+
+    [Header("Ground Check")] 
+    [SerializeField] private Transform groundCheck; 
+    [SerializeField] private float groundCheckRadius = 0.15f; 
+    [SerializeField] private LayerMask groundLayer;
     private bool isGrounded;
+
     private float movementMultiplier = 1f;
 
     private Vector2 moveInput;
@@ -40,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movementMultiplier = !playerBehaviour.hasBall ? 1f : ballSlowModifier;
         moveInput = input.Player.Move.ReadValue<Vector2>();
+        isGrounded = Physics2D.OverlapCircle( groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     private void FixedUpdate()
@@ -69,19 +76,9 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
+    private void OnDrawGizmosSelected() { 
+        if (groundCheck == null) return; 
+        Gizmos.color = Color.green; 
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius); 
     }
 }

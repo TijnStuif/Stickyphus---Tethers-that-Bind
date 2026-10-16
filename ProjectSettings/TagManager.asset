@@ -4,19 +4,18 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Ground
   - PlayerBall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Map
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ball
+  - Player
+  - BallBlocker
+  - PlayerBlocker
   - 
   - 
   - 
