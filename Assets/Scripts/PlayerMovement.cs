@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
+    // these gizmos are only used to visualise what the ground check radius is in the editor
     private void OnDrawGizmosSelected() { 
         if (groundCheck == null) return; 
         Gizmos.color = Color.green; 

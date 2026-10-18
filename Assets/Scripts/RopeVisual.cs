@@ -6,7 +6,7 @@ public class RopeVisual : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject ball;
 
-    [SerializeField] private int segments = 20;
+    [SerializeField] private int ropeSegments = 20;
     [SerializeField] private float maxSag = 1.5f;
 
     private LineRenderer ropeLine;
@@ -15,7 +15,7 @@ public class RopeVisual : MonoBehaviour
     {
         ropeLine = GetComponent<LineRenderer>();
         ropeLine.useWorldSpace = true;
-        ropeLine.positionCount = segments + 1;
+        ropeLine.positionCount = ropeSegments + 1;
     }
 
     private void LateUpdate()
@@ -35,25 +35,19 @@ public class RopeVisual : MonoBehaviour
 
         float ropeLength = 4f;
 
-        // more slack means more sag
         float slack = Mathf.Max(0f, ropeLength - distance);
         float sag = Mathf.Min(slack, maxSag);
 
-        for (int i = 0; i <= segments; i++)
+        // for loop that draws line points based on player/ball distance
+        for (int i = 0; i <= ropeSegments; i++)
         {
-            float t = (float)i / segments;
+            float t = (float)i / ropeSegments;
 
             Vector2 point = Vector2.Lerp(start, end, t);
 
-            // sag is greatest in the middle and zero at both ends
-            point.y -= sag * 4f * t * (1f - t);
+            point.y -= sag * ropeLength * t * (1f - t);
 
             ropeLine.SetPosition(i, point);
         }
-    }
-
-    public void SetRopeVisible(bool visible)
-    {
-        ropeLine.enabled = visible;
     }
 }
