@@ -20,12 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public PlayerInputActions input;
     private PlayerBehaviour playerBehaviour;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         input = new PlayerInputActions();
         playerBehaviour = GetComponent<PlayerBehaviour>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -47,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         movementMultiplier = !playerBehaviour.hasBall ? 1f : ballSlowModifier;
         moveInput = input.Player.Move.ReadValue<Vector2>();
         isGrounded = Physics2D.OverlapCircle( groundCheck.position, groundCheckRadius, groundLayer);
+
+        FlipSprite();
     }
 
     private void FixedUpdate()
@@ -74,6 +78,18 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity.x,
             jumpForce * movementMultiplier
         );
+    }
+
+    private void FlipSprite()
+    {
+        if (moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     // these gizmos are only used to visualise what the ground check radius is in the editor
