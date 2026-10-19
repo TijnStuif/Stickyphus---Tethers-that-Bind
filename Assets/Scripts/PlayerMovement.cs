@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInputActions input;
     private PlayerBehaviour playerBehaviour;
     private SpriteRenderer spriteRenderer;
+    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         input = new PlayerInputActions();
         playerBehaviour = GetComponent<PlayerBehaviour>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnEnable()
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isGrounded)
             return;
 
+        audioManager.PlaySFX(audioManager.jumpSFX);
         rb.linearVelocity = new Vector2(
             rb.linearVelocity.x,
             jumpForce * movementMultiplier

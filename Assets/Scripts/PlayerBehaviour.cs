@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     private PlayerMovement playerMovement;
     private Rigidbody2D playerRb;
     private Animator animator;
+    private AudioManager audioManager;
     [SerializeField] private Rigidbody2D ballRb;
 
     void Start()
@@ -23,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
         ballThrowForce *= ballRb.mass;
         Debug.Log("Ball throw force: " + ballThrowForce);
     }
@@ -61,6 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
             
             ballRb.AddForce(CheckThrowingDiagonal() * ballThrowForce, ForceMode2D.Impulse);
 
+            audioManager.PlaySFX(audioManager.throwSFX);
             StartCoroutine(DisableBallCollision());
         }
     }
@@ -93,6 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
             collision.gameObject.SetActive(false);
             heldBall = collision.gameObject;
             ballRb = heldBall.GetComponent<Rigidbody2D>();
+            audioManager.PlaySFX(audioManager.pickupSFX);
         }
     }
 
