@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: efe86cdf90fdd8f4cb072b147a4e075d
+guid: 18e70a8a9fec8a4418f2f9255f7d08c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1763745351169495672
-    second: spritesheet-table-240-240 1_0
+      213: 827399727074399874
+    second: stickman_walking_0
   - first:
-      213: 596898043882206309
-    second: spritesheet-table-240-240 1_1
+      213: -1589815564850750908
+    second: stickman_walking_1
   - first:
-      213: 3724144922507924864
-    second: spritesheet-table-240-240 1_2
+      213: 6140237015178270859
+    second: stickman_walking_2
   - first:
-      213: 2387061606503931033
-    second: spritesheet-table-240-240 1_3
+      213: -7051814342872593883
+    second: stickman_walking_3
   - first:
-      213: -7454239434913844686
-    second: spritesheet-table-240-240 1_4
+      213: 3732519942441268265
+    second: stickman_walking_4
   - first:
-      213: 606078661753640466
-    second: spritesheet-table-240-240 1_5
+      213: -4114312710386909910
+    second: stickman_walking_5
   - first:
-      213: 569636884196069846
-    second: spritesheet-table-240-240 1_6
-  - first:
-      213: 3042000969077386894
-    second: spritesheet-table-240-240 1_7
-  - first:
-      213: -2987437625753989484
-    second: spritesheet-table-240-240 1_8
+      213: -5599086990344964077
+    second: stickman_walking_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -163,13 +157,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_0
+      name: stickman_walking_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 6
-        width: 65
-        height: 191
+        x: 85
+        y: 21
+        width: 55
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88dab45a2fae587e0800000000000000
-      internalID: -1763745351169495672
+      spriteID: 28656830ba38b7b00800000000000000
+      internalID: 827399727074399874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_1
+      name: stickman_walking_1
       rect:
         serializedVersion: 2
-        x: 323
-        y: 6
-        width: 65
-        height: 190
+        x: 325
+        y: 21
+        width: 55
+        height: 149
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56479b0cb9b984800800000000000000
-      internalID: 596898043882206309
+      spriteID: 44a1faeba27dfe9e0800000000000000
+      internalID: -1589815564850750908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_2
+      name: stickman_walking_2
       rect:
         serializedVersion: 2
-        x: 563
-        y: 6
-        width: 65
-        height: 188
+        x: 561
+        y: 20
+        width: 57
+        height: 149
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 085d82e5312dea330800000000000000
-      internalID: 3724144922507924864
+      spriteID: b88d76e6801863550800000000000000
+      internalID: 6140237015178270859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_3
+      name: stickman_walking_3
       rect:
         serializedVersion: 2
-        x: 803
-        y: 6
-        width: 65
-        height: 186
+        x: 804
+        y: 21
+        width: 56
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99cd3a842eb802120800000000000000
-      internalID: 2387061606503931033
+      spriteID: 52a031f973ce22e90800000000000000
+      internalID: -7051814342872593883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_4
+      name: stickman_walking_4
       rect:
         serializedVersion: 2
-        x: 1043
-        y: 7
-        width: 65
-        height: 188
+        x: 1051
+        y: 22
+        width: 49
+        height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +260,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 232704b6ab83d8890800000000000000
-      internalID: -7454239434913844686
+      spriteID: 924f546ac139cc330800000000000000
+      internalID: 3732519942441268265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_5
+      name: stickman_walking_5
       rect:
         serializedVersion: 2
-        x: 1283
-        y: 6
-        width: 65
-        height: 190
+        x: 1280
+        y: 24
+        width: 58
+        height: 145
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +282,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21615cbe459396800800000000000000
-      internalID: 606078661753640466
+      spriteID: a2d7382736607e6c0800000000000000
+      internalID: -4114312710386909910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-table-240-240 1_6
+      name: stickman_walking_6
       rect:
         serializedVersion: 2
-        x: 1523
-        y: 6
-        width: 65
-        height: 188
+        x: 1518
+        y: 22
+        width: 62
+        height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,52 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d197756ab1c7e700800000000000000
-      internalID: 569636884196069846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-table-240-240 1_7
-      rect:
-        serializedVersion: 2
-        x: 1763
-        y: 6
-        width: 65
-        height: 188
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e8e6040a3cb573a20800000000000000
-      internalID: 3042000969077386894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-table-240-240 1_8
-      rect:
-        serializedVersion: 2
-        x: 2003
-        y: 6
-        width: 65
-        height: 186
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49e0c48be4d7a86d0800000000000000
-      internalID: -2987437625753989484
+      spriteID: 3183af92c0c0c42b0800000000000000
+      internalID: -5599086990344964077
       vertices: []
       indices: 
       edges: []
@@ -364,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 85127dfcaf16ed34f831837790b848c1
+    spriteID: 69eada8a50685ff47921388308eb1ef7
     internalID: 0
     vertices: []
     indices: 
@@ -372,21 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      spritesheet-table-240-240 1_0: -1763745351169495672
-      spritesheet-table-240-240 1_1: 596898043882206309
-      spritesheet-table-240-240 1_2: 3724144922507924864
-      spritesheet-table-240-240 1_3: 2387061606503931033
-      spritesheet-table-240-240 1_4: -7454239434913844686
-      spritesheet-table-240-240 1_5: 606078661753640466
-      spritesheet-table-240-240 1_6: 569636884196069846
-      spritesheet-table-240-240 1_7: 3042000969077386894
-      spritesheet-table-240-240 1_8: -2987437625753989484
+      stickman_walking_0: 827399727074399874
+      stickman_walking_1: -1589815564850750908
+      stickman_walking_2: 6140237015178270859
+      stickman_walking_3: -7051814342872593883
+      stickman_walking_4: 3732519942441268265
+      stickman_walking_5: -4114312710386909910
+      stickman_walking_6: -5599086990344964077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

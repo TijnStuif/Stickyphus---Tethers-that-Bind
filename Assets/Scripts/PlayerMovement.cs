@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float movementMultiplier = 1f;
 
-    private Vector2 moveInput;
+    public Vector2 moveInput;
 
     private Rigidbody2D rb;
     public PlayerInputActions input;
@@ -48,9 +48,11 @@ public class PlayerMovement : MonoBehaviour
     {
         movementMultiplier = !playerBehaviour.hasBall ? 1f : ballSlowModifier;
         moveInput = input.Player.Move.ReadValue<Vector2>();
-        isGrounded = Physics2D.OverlapCircle( groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         FlipSprite();
+
+        UpdateWalkingBool();
     }
 
     private void FixedUpdate()
@@ -89,6 +91,18 @@ public class PlayerMovement : MonoBehaviour
         else if (moveInput.x < 0)
         {
             spriteRenderer.flipX = true;
+        }
+    }
+
+    private void UpdateWalkingBool()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            playerBehaviour.isWalking = true;
+        }
+        else
+        {
+            playerBehaviour.isWalking = false;
         }
     }
 

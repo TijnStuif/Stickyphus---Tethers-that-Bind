@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerBehaviour : MonoBehaviour
 {
     [System.NonSerialized] public bool hasBall = false;
+    [System.NonSerialized] public bool isWalking = false;
     [SerializeField] private float ropeStiffness = 10f;
     public float ballThrowForce = 10f;
     public float ballPickupDelay = 1f;
@@ -14,12 +15,14 @@ public class PlayerBehaviour : MonoBehaviour
     
     private PlayerMovement playerMovement;
     private Rigidbody2D playerRb;
+    private Animator animator;
     [SerializeField] private Rigidbody2D ballRb;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
         ballThrowForce *= ballRb.mass;
         Debug.Log("Ball throw force: " + ballThrowForce);
     }
@@ -35,6 +38,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             ballPickupTimer += Time.deltaTime;
         }
+
+        HandleAnimation();
     }
 
     private void FixedUpdate()
@@ -113,5 +118,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         Physics2D.IgnoreCollision(playerCollider, ballCollider, false);
         joint.enabled = true;
+    }
+
+    private void HandleAnimation()
+    {
+        if (isWalking)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 }
