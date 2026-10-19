@@ -5,7 +5,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [System.NonSerialized] public bool hasBall = false;
     [System.NonSerialized] public bool isWalking = false;
-    [SerializeField] private float ropeStiffness = 10f;
+    [SerializeField] private float ropeStrength = 10f;
     public float ballThrowForce = 10f;
     public float ballPickupDelay = 1f;
     public float ropeLength = 2f;
@@ -68,6 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    //pulls player and ball to each other, dependant on distance and rope pulling strength
     private void ApplyRopeForce()
     {
         if (hasBall) return;
@@ -81,7 +82,7 @@ public class PlayerBehaviour : MonoBehaviour
         Vector2 direction = difference.normalized;
 
         float stretch = distance - ropeLength;
-        float force = stretch * ropeStiffness;
+        float force = stretch * ropeStrength;
 
         playerRb.AddForce(direction * force * playerPullAdjustment);
         ballRb.AddForce(-direction * force);
@@ -103,9 +104,8 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector2 CheckThrowingDiagonal()
     {
         Vector2 mouseworldPosition = Camera.main.ScreenToWorldPoint(
-            playerMovement.input.Player.Look.ReadValue<Vector2>());
-        Vector2 direction = 
-            (mouseworldPosition - (Vector2)transform.position).normalized;
+                                     playerMovement.input.Player.Look.ReadValue<Vector2>());
+        Vector2 direction = (mouseworldPosition - (Vector2)transform.position).normalized;
         return direction;
     }
 

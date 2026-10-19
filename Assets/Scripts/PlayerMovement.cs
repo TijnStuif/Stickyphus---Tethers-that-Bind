@@ -68,9 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         float speedDifference = targetSpeed - rb.linearVelocity.x;
 
-        rb.AddForce(
-            Vector2.right * speedDifference * acceleration
-        );
+        rb.AddForce(Vector2.right * speedDifference * acceleration);
     }
 
     private void Jump(UnityEngine.InputSystem.InputAction.CallbackContext context)
