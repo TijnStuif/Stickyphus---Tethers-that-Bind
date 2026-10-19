@@ -126,13 +126,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void HandleAnimation()
     {
-        if (isWalking)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("hasBall", hasBall);
     }
 }
